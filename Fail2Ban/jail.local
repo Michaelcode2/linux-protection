@@ -1,0 +1,23 @@
+
+[DEFAULT]
+## Ignored IP adresses (newer banned)
+ignoreip = 212.101.101.101
+
+[ssh]
+## Find in period:
+findtime    = 3600
+# Quantity of unsuccessfull logins:
+maxretry    = 6
+# 24 hours bantime
+bantime     = 86400
+
+[proxmox]
+enabled = true
+port = https,http,8006
+filter = proxmox
+logpath = /var/log/daemon.log
+maxretry = 4
+# 12 hour
+bantime = 43200
+# bantime = 86400 #24 hours
+
