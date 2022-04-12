@@ -28,7 +28,18 @@
  # 24 hours bantime
  bantime     = 86400
  ```
-  
+
+Create the file /etc/fail2ban/filter.d/proxmox.conf : 
+ 
+```
+ [Definition]
+failregex = pvedaemon\[.*authentication failure; rhost=<HOST> user=.* msg=.*
+ignoreregex = 
+```
+
+You can test your configuration trying to GUI login with a wrong password or user, and then issue the command : 
+```fail2ban-regex /var/log/daemon.log /etc/fail2ban/filter.d/proxmox.conf```
+
  Після налаштувань перезапускаємо сервіс fail2ban
  ```service fail2ban restart```
  
